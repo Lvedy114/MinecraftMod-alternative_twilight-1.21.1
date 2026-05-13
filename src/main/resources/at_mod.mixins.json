@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.lvedy.at_mod.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "Naga.NagaMixin",
+    "Naga.NagaMovementPatternMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

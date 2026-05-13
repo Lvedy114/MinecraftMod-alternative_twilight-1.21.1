@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/client/model/HumanoidModel$ArmPose",
+      "name": "AT_MOD_SPEAR_POSE",
+      "constructor": "(ZLnet/neoforged/neoforge/client/IArmPoseTransformer;)V",
+      "parameters": {
+        "class": "com/lvedy/at_mod/special/ModItems/SpearItem$ClientExtensions",
+        "field": "SPEAR_POSE"
+      }
+    }
+  ]
+}
