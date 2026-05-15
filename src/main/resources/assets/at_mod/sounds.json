@@ -1,0 +1,74 @@
+{
+  "music.naga": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "at_mod:music/naga",
+        "stream": true
+      }
+    ]
+  },
+  "music.lich": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "at_mod:music/lich",
+        "stream": true
+      }
+    ]
+  },
+  "music.hydra": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "at_mod:music/hydra",
+        "stream": true
+      }
+    ]
+  },
+  "music.ur_ghast": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "at_mod:music/ur_ghast",
+        "stream": true
+      }
+    ]
+  },
+  "music.knight_phantom": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "at_mod:music/knight_phantom",
+        "stream": true
+      }
+    ]
+  },
+  "music.snow_queen": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "at_mod:music/snow_queen",
+        "stream": true
+      }
+    ]
+  },
+  "music.minoshroom": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "at_mod:music/minoshroom",
+        "stream": true
+      }
+    ]
+  },
+  "music.alpha_yeti": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "at_mod:music/alpha_yeti",
+        "stream": true
+      }
+    ]
+  }
+}
