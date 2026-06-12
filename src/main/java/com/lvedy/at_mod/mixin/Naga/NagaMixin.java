@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import twilightforest.entity.ai.goal.NagaMovementPattern;
@@ -50,10 +51,15 @@ public abstract class NagaMixin {
                 }
             }
         }
-        if(!naga.isDazed())
-            amount = (float) (amount * Config.NON_DAZED_DAMAGE_MULTIPLIER.getAsDouble());
-        else
-            amount = (float) (amount * Config.DAZED_DAMAGE_MULTIPLIER.getAsDouble());
+    }
+
+    @ModifyVariable(method = "hurt", at = @At("HEAD"), argsOnly = true, ordinal = 0)
+    private float atmod$modifyHurtAmount(float amount) {
+        Naga naga = (Naga) (Object) this;
+        double mult = naga.isDazed()
+                ? Config.DAZED_DAMAGE_MULTIPLIER.getAsDouble()
+                : Config.NON_DAZED_DAMAGE_MULTIPLIER.getAsDouble();
+        return (float) (amount * mult);
     }
 
     @Inject(method = "<init>", at = @At("TAIL"))

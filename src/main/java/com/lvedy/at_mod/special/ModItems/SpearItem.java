@@ -1,6 +1,7 @@
 package com.lvedy.at_mod.special.ModItems;
 
 import com.lvedy.at_mod.AlternativeTwilight;
+import com.lvedy.at_mod.config.Config;
 import com.lvedy.at_mod.register.ModItem;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.core.BlockPos;
@@ -25,8 +26,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.common.asm.enumextension.EnumProxy;
 import net.neoforged.neoforge.client.IArmPoseTransformer;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
@@ -39,7 +38,10 @@ import java.util.List;
 public class SpearItem extends TieredItem {
 
     public static final ResourceKey<DamageType> SPEAR_DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, AlternativeTwilight.prefix("spear"));
-    
+
+    // 玩家持矛被打后的保护期截止 gameTime（写入玩家 PersistentData）
+    public static final String PROTECT_UNTIL_KEY = "AtmodSpearProtectUntil";
+
     // 保存右键时的突进速度
     private final float dashSpeed;
 
@@ -81,7 +83,17 @@ public class SpearItem extends TieredItem {
 
         // 确保在服务端运行，玩家正手持长矛且速度大于1
         if (!level.isClientSide() && isSelected && entity instanceof Player player && player.getDeltaMovement().length() > 1.0) {
-            AABB boundingBox = player.getBoundingBox().inflate(1.3);
+            // 攻击冷却中（蓄力未满）不造成伤害
+            if (player.getAttackStrengthScale(0F) < 1.0F) {
+                return;
+            }
+            // 被击保护期内不造成伤害
+            long protectUntil = player.getPersistentData().getLong(PROTECT_UNTIL_KEY);
+            if (level.getGameTime() < protectUntil) {
+                return;
+            }
+
+            AABB boundingBox = player.getBoundingBox().inflate(1.6);
             List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class, boundingBox, e -> e != player && e.isAlive());
 
             if (!targets.isEmpty()) {
@@ -107,6 +119,10 @@ public class SpearItem extends TieredItem {
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand usedHand) {
+        // 攻击冷却中禁止冲刺
+        if (player.getAttackStrengthScale(0F) < 1.0F) {
+            return InteractionResultHolder.fail(player.getItemInHand(usedHand));
+        }
         // 使用保存的 dashSpeed 作为初速度
         Vec3 vec1 = player.getForward().scale(this.dashSpeed);
         player.setDeltaMovement(vec1);

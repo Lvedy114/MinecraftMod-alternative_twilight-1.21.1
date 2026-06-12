@@ -25,6 +25,11 @@
   "death.attack.at_mod.spear": "%1$s 被 %2$s 捅穿了",
   "death.attack.at_mod.spear.item": "%1$s 被 %2$s 使用 %3$s 捅穿了",
   "death.attack.at_mod.naga_venom": "%1$s 没能逃出娜迦的地盘",
+  "death.attack.at_mod.blood_curse": "%1$s 被嗜血诅咒吞噬了",
+  "death.attack.at_mod.blood_curse.item": "%1$s 被嗜血诅咒吞噬了",
+
+  "effect.at_mod.blood_lust": "嗜血",
+  "effect.at_mod.blood_lust_curse": "嗜血诅咒",
 
   "config.at_mod.naga.maxHealth": "娜迦最大生命值",
   "config.at_mod.naga.nonDazedDamageMultiplier": "非眩晕状态伤害倍率",
@@ -34,5 +39,9 @@
   "config.at_mod.naga.phase3HealthRatio": "第三阶段血量阈值",
   "config.at_mod.naga.venom.count": "毒液发射数量",
   "config.at_mod.naga.venom.spread": "毒液散布范围",
-  "config.at_mod.naga.venom.lingerTicks": "毒液存在时长"
+  "config.at_mod.naga.venom.lingerTicks": "毒液存在时长",
+  "config.at_mod.effect.bloodLustCurse.damagePerLevel": "嗜血诅咒每级伤害比例",
+  "config.at_mod.effect.bloodLust.attackPerLevel": "嗜血每级攻击加成",
+  "config.at_mod.effect.bloodLust.speedPerLevel": "嗜血每级速度加成",
+  "config.at_mod.spear.hitProtectionTicks": "长矛被击保护时间"
 }

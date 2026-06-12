@@ -26,6 +26,11 @@
   "death.attack.at_mod.spear.item": "%1$s was pierced by %2$s using %3$s",
   "death.attack.at_mod.naga_venom": "%1$s was dissolved by Naga's venom",
   "death.attack.at_mod.naga_venom.item": "%1$s was dissolved by Naga's venom",
+  "death.attack.at_mod.blood_curse": "%1$s was consumed by the blood curse",
+  "death.attack.at_mod.blood_curse.item": "%1$s was consumed by the blood curse",
+
+  "effect.at_mod.blood_lust": "Blood Lust",
+  "effect.at_mod.blood_lust_curse": "Blood Lust Curse",
 
   "config.at_mod.naga.maxHealth": "Naga Max Health",
   "config.at_mod.naga.nonDazedDamageMultiplier": "Non-Dazed Damage Multiplier",
@@ -35,5 +40,9 @@
   "config.at_mod.naga.phase3HealthRatio": "Phase 3 Health Ratio",
   "config.at_mod.naga.venom.count": "Venom Projectile Count",
   "config.at_mod.naga.venom.spread": "Venom Spread Range",
-  "config.at_mod.naga.venom.lingerTicks": "Venom Linger Duration"
+  "config.at_mod.naga.venom.lingerTicks": "Venom Linger Duration",
+  "config.at_mod.effect.bloodLustCurse.damagePerLevel": "Blood Lust Curse Damage Per Level",
+  "config.at_mod.effect.bloodLust.attackPerLevel": "Blood Lust Attack Bonus Per Level",
+  "config.at_mod.effect.bloodLust.speedPerLevel": "Blood Lust Speed Bonus Per Level",
+  "config.at_mod.spear.hitProtectionTicks": "Spear Hit Protection Ticks"
 }

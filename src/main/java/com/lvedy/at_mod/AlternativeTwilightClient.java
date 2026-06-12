@@ -3,6 +3,14 @@ package com.lvedy.at_mod;
 import com.lvedy.at_mod.special.ModEntity.client.NagaVenomRenderer;
 import com.lvedy.at_mod.register.ModEntityTypes;
 import com.lvedy.at_mod.special.ModItems.SpearItem;
+import com.lvedy.at_mod.client.sound.NagaBossMusic;
+import com.lvedy.at_mod.client.sound.LichBossMusic;
+import com.lvedy.at_mod.client.sound.HydraBossMusic;
+import com.lvedy.at_mod.client.sound.UrGhastBossMusic;
+import com.lvedy.at_mod.client.sound.KnightPhantomBossMusic;
+import com.lvedy.at_mod.client.sound.SnowQueenBossMusic;
+import com.lvedy.at_mod.client.sound.MinoshroomBossMusic;
+import com.lvedy.at_mod.client.sound.AlphaYetiBossMusic;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -37,5 +45,15 @@ public class AlternativeTwilightClient {
         // Some client setup code
         AlternativeTwilight.LOGGER.info("HELLO FROM CLIENT SETUP");
         AlternativeTwilight.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
+        // 注册 Boss 背景音乐
+        event.enqueueWork(NagaBossMusic::register);
+        event.enqueueWork(LichBossMusic::register);
+        event.enqueueWork(HydraBossMusic::register);
+        event.enqueueWork(UrGhastBossMusic::register);
+        event.enqueueWork(KnightPhantomBossMusic::register);
+        event.enqueueWork(SnowQueenBossMusic::register);
+        event.enqueueWork(MinoshroomBossMusic::register);
+        event.enqueueWork(AlphaYetiBossMusic::register);
     }
 }

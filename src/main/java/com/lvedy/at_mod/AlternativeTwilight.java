@@ -2,8 +2,10 @@ package com.lvedy.at_mod;
 
 import com.lvedy.at_mod.config.Config;
 import com.lvedy.at_mod.register.ModBlock;
+import com.lvedy.at_mod.register.ModEffects;
 import com.lvedy.at_mod.register.ModEntityTypes;
 import com.lvedy.at_mod.register.ModItem;
+import com.lvedy.at_mod.register.ModSounds;
 import com.lvedy.at_mod.register.ModTabs;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
@@ -48,6 +50,10 @@ public class AlternativeTwilight {
         ModTabs.register(modEventBus);
         // Register the Deferred Register to the mod event bus so entity types get registered
         ModEntityTypes.register(modEventBus);
+        // Register the Deferred Register to the mod event bus so sound events get registered
+        ModSounds.register(modEventBus);
+        // Register the Deferred Register to the mod event bus so mob effects get registered
+        ModEffects.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (AlternativeTwilight) to respond directly to events.

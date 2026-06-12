@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "Naga.NagaMixin",
-    "Naga.NagaMovementPatternMixin"
+    "Naga.NagaMovementPatternMixin",
+    "Lich.LichMixin"
   ],
   "injectors": {
     "defaultRequire": 1
